@@ -1,0 +1,546 @@
+/* <!-- Nama : Aysia Fatmi Yasmin --> */
+/* <!-- NPM : 2010631250033 --> */
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+/* Title Section */
+
+    /* ID Selector */
+        #title{
+            background-color: #ff4c68;
+            padding: 3% 15% 2%;
+        }
+
+    /* Class Selector */
+        .brand-style{
+            font-size: 2.5rem!important;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        .navbar-style{
+            font-size: 1rem!important;
+            font-weight: 500;
+            margin-left: auto;
+            margin-bottom: 0;
+        }
+
+        .nav-item-style{
+            margin-right: 1.5rem;
+        }
+
+        .title-grid-style{
+            padding-top: 1.5rem!important;
+        }
+
+        .big-header-style{
+            color: white;
+            display: block;
+            font-weight: 900;
+            font-size: 3.5rem;
+            line-height: 1.5;
+            
+        }
+
+        .next-portofolios-style{
+            color: white!important;
+            font-weight: 500;
+        }
+
+        .button-download-group-style{
+            margin: 10% 0 10% 0;
+        }
+
+        .button-download-style{
+            padding: 0.25rem 1rem;
+        }
+
+        .mockup-style{
+            width: 40%;
+            transition: 0.4s;
+            position: absolute;
+        }
+
+        .mockup-style:hover{
+            transform: scale(1.15);
+        }
+
+        .text-white-color-style{
+            color: white;
+            text-align: justify;
+        }
+
+
+
+/* Features Section */
+
+    /* ID Selector */
+        #features{
+            background-color: white;
+            padding: 5% 10%;
+            position: relative;
+        }
+
+    /* Class Selector */
+        .feature-item-style{
+            padding:5%;
+            text-align: center;
+        }
+
+        .feature-header-style{
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+        
+        .feature-description-style{
+            color:#8f8f8f;
+        }
+
+        .feature-icon-style{
+            color: #ff4c68;
+            font-size: 4rem;
+            margin-bottom: 10%;
+        }
+
+
+/* Testimonial Section */
+
+    /* ID Selector */
+        #testimonials{
+            background-color: #ff4c68;
+            text-align: center;
+            color: white;
+            padding-top: 5%;  
+        }
+
+    /* Class Selector */
+       .testimonial-text-style{
+           font-weight: 700;
+           font-size: 200%;
+        }
+
+       .testimonial-image-style{
+        width: 5%;
+        border-radius: 100%;
+        margin: 20px;
+        }
+
+        .carousel-style{
+            padding: 3% 15%;    
+        }
+
+        .carousel-item{
+            position: relative;
+            display: none;
+            float: left;
+            width: 100%;
+            margin-right: -100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: transform .5s ease-out;
+        }
+        
+        
+/* Press Section */
+
+    /* ID Selector */
+        #press{
+            background-color: #ff4c68;
+            text-align: center;
+            padding: 3% 15%;
+            
+        }
+
+    /* Class Selector */
+        .carousel-style{
+            padding: 3% 15%;    
+        }
+
+        .press-image-style{
+            width: 15%;
+            margin: 0 2%;
+        }
+
+        .press-label-style{
+            color: white;
+            margin-bottom: 1.5%;
+        }
+
+        .press-box-style{
+            margin-top: 1.5%;
+            background-color: #fafafa;
+            border-radius: 15px;
+
+        }
+
+/* Pricing Section */
+
+    /* ID Selector */
+        #pricing{
+            background-color: white;
+            text-align: center;
+            padding: 5% 15%;
+            position: relative;
+            
+        }
+
+    /* Class Selector */
+        .pricing-header-style{
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        
+        .pricing-type-style{
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .pricing-table-style{
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .pricing-button-style{
+            width: 100%;
+        }
+
+    /* Card  */
+        .card-header{
+            background-color: #ff4c68;
+            color: white!important;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .card-body{
+            transition: 0.6s;
+        }
+
+        .card-body:not(.nohover):hover{
+            background-color: #ff4c68;
+            color: white;
+        }
+
+        
+
+
+/* CTA Section */
+
+    /* ID Selector */
+        #cta{
+            background-color: #ff4c68;
+            text-align: center;
+            padding: 5% 15%;
+            position: relative;
+
+        }
+
+        #cta h1{
+            font-size: 250%;
+        }
+
+    /* Class Selector */
+        .cta-button-style{
+            margin: 5% 1%;
+        }
+
+        .footer-icon-style{
+            margin: 1%;
+        }
+
+    /* Contact Us Form */
+        .contact-us-style{
+            color: white;
+            margin-top: 10%;
+            margin-bottom: 5%;
+        }
+
+        .label-text-style{
+            color: white;
+            text-align: left;
+            display: block;
+        }
+
+        .textarea-style{
+            height: 195px;
+        }
+
+        .btn-warning{
+            color: white;
+            margin-bottom: 10%;
+        }
+
+    /* Map */
+    .mapouter{
+        box-sizing: border-box;
+        position:relative;
+        display: inline-block;
+    }
+
+    .gmap_canvas {
+        text-align:center!important;
+        overflow:hidden;
+        background:none!important;
+        height:500px;
+        width:600px;
+    }
+
+/* Footer Section */
+
+    /* ID Selector */
+    #footer{
+        background-color: white;
+        text-align: center;
+        padding: 3% 0 0 0;
+        position: relative;
+    }
+
+    /* Class Selector */
+        .copyright-style{
+            color: grey;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 1% 0 2% 0;
+
+        }
+    
+
+/* TABLET IPAD PRO IPAD */
+@media(min-width: 990px) and (max-width: 1150px){
+    /* Title Section */
+    .mockup-style{
+        margin-left: 20%;
+        transform: rotate(0)!important;
+        width: 160%!important;
+        position: static;
+    }
+
+    .big-header-style{
+        font-size: 3rem;
+    }
+
+    .button-download-style{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-dark{
+        border: 2px solid #212529;
+    }
+
+}
+
+
+/* MINI ANDROID TABLET */
+@media (min-width: 930px) and (max-width: 989px){
+    /* Title Section */
+    .mockup-style{
+        margin-left: 20%;
+        transform: rotate(0)!important;
+        width: 200%!important;
+        position: static;
+    }
+
+    .big-header-style{
+        font-size: 2.8rem;
+    }
+
+    .button-download-style{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-dark{
+        border: 2px solid #212529;
+    }
+
+}
+
+
+@media (min-width: 840px) and (max-width: 929px){
+    /* Title Section */
+    .mockup-style{
+        margin-left: 20%;
+        transform: rotate(0)!important;
+        width: 200%!important;
+        position: static;
+    }
+
+    .big-header-style{
+        font-size: 2.8rem;
+    }
+
+    .button-download-style{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-dark{
+        border: 2px solid #212529;
+    }
+
+}
+
+@media (min-width: 767px) and (max-width: 839px){
+    /* Title Section */
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    .mockup-style{
+        margin-left: 20%;
+        transform: rotate(0)!important;
+        width: 200%!important;
+        position: static;
+    }
+
+    .big-header-style{
+        font-size: 2.5rem;
+    }
+
+    .button-download-style{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-dark{
+        border: 2px solid #212529;
+    }
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 250%;
+     }
+
+}
+
+@media (min-width: 582px) and (max-width: 766px){
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    #title{
+        padding-bottom: 40%;
+    }
+    .mockup-style{
+        position: absolute;
+        width: 200%;
+        margin-left: 20%;
+    }
+
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 250%;
+     }
+}
+
+@media (min-width: 515px) and (max-width: 581px){
+
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    #title{
+        padding-bottom: 40%;
+    }
+    .mockup-style{
+        position: absolute;
+        width: 200%;
+        margin-left: 20%;
+    }
+
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 250%;
+     }
+
+    .big-header-style{
+        font-size: 2.5rem;
+    }
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 200%;
+     }
+}
+
+@media (max-width: 514px){
+
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    .brand-style{
+        font-size: 2rem!important;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
+    #title{
+        padding-bottom: 40%;
+    }
+    .mockup-style{
+        position: absolute;
+        width: 50%;
+        margin-left: 20%;
+    }
+
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 250%;
+     }
+
+    .big-header-style{
+        font-size: 2.5rem;
+    }
+
+    .testimonial-text-style{
+        font-weight: 700;
+        font-size: 200%;
+     }
+
+     .button-download-style{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-dark{
+        border: 2px solid #212529;
+    }
+}
