@@ -1,6 +1,6 @@
 <!-- Nama : Aysia Fatmi Yasmin -->
 <!-- NPM : 2010631250033 -->
-
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 
@@ -9,14 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Aysia Fatmi Yasmin">
   <link rel="icon" href="favicon/favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/a80ad92363.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&family=Ubuntu:wght@400;500;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -28,48 +25,18 @@
   <!-- Title -->
   <section id="title">
     <div class="container-fluid">
-
-      <!-- Nav Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark mb-5" data-aos="fade-down" data-aos-duration="1000"> 
-        <span class="navbar-brand brand-style">Happy Cat.</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar List & Item -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav navbar-style">
-            <li class="nav-item nav-item-style"><a class="nav-link" href="index.html">Beranda</a></li>
-            <li class="nav-item nav-item-style"><a class="nav-link" href="tentang.html">Tentang</a></li>
-            <li class="nav-item nav-item-style"><a class="nav-link" href="index.html#contact">Kontak</a></li>
-            <li class="nav-item nav-item-style"><a class="nav-link" href="index.html#pricing">Produk</a></li>
-            <li class="nav-item nav-item-style"><a class="nav-link" href="blog.html">Blog</a></li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Akun Saya
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><p class="fw-bold ps-2 mb-0"> Halo, Aysia</p><p class="fs-6 ps-2 mb-2"> username_aysia </p></li>
-                <li><a class="dropdown-item" href="#">Pesanan Saya</a></li>
-                <li><a class="dropdown-item" href="#">Ganti Password</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-      </nav>
-      
+      <?php include 'navbar_depan.php'; ?>
       <!-- Title's grid system -->
       <div class="row title-grid-style">
         <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
           <h1 class="big-header-style">berikan perawatan terbaik untuk kucing anda.</h1>
           <div class="button-download-group-style">
-            <a type="button" class="btn btn-dark btn-lg button-download-style" href="register.html"> Sign Up </a>
-            <a type="button" class="btn btn-outline-light btn-lg button-download-style" href="login.html"> Sign In </a>
+            <?php if (isset($_SESSION["username"])) {
+            } else { ?>
+              <a type="button" class="btn btn-dark btn-lg button-download-style" href="register.php"> Sign Up </a>
+              <a type="button" class="btn btn-outline-light btn-lg button-download-style" href="login.php"> Sign In </a>
+            <?php } ?>
+
           </div>
         </div>
         <div class="col-md-6 ">
@@ -78,7 +45,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- Features -->
 
@@ -122,13 +88,11 @@
           <em>Manis, Tambun</em>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -168,8 +132,11 @@
               <p>1x Grooming</p>
               <p>1x Potong kuku</p>
               <p>1x Tes Virus</p>
-              <a href="register.html" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign
-                Up</a>
+              <?php if (isset($_SESSION["username"])) { ?>
+                <a href="#" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+              <?php } else { ?>
+                <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
+              <?php } ?>
             </div>
           </div>
         </div>
@@ -184,7 +151,11 @@
               <p>2x Perawatan Kuku/bulan</p>
               <p>1x Cek Kesehatan/bulan</p>
               <p>1x Penyembuhan/tahun</p>
-              <a class="btn btn-dark btn-lg pricing-button-style" href="register.html" style="margin-top: 40px;" type="button">Sign Up</a>
+              <?php if (isset($_SESSION["username"])) { ?>
+                <a href="#" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+              <?php } else { ?>
+                <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
+              <?php } ?>
             </div>
           </div>
         </div>
@@ -199,7 +170,11 @@
               <p>4x Perawatan Kuku/bulan</p>
               <p>2x Cek Kesehatan/bulan</p>
               <p>2x Penyembuhan/tahun</p>
-              <a href="register.html" class="btn btn-dark btn-lg pricing-button-style" style="margin-top: 40px;"type="button">Sign Up</a>
+              <?php if (isset($_SESSION["username"])) { ?>
+                <a href="#" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+              <?php } else { ?>
+                <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
+              <?php } ?>
             </div>
           </div>
         </div>
@@ -217,11 +192,11 @@
       <button data-aos="fade-left" data-aos-duration="1000" type="button" class="btn btn-light btn-lg button-download-style cta-button-style"><i class="fab fa-google-play"></i> Download</button>
 
       <p style="text-align: center;">
-        <h1 id="contact" class="brand-style contact-us-style" data-aos="fade-right">Temui Kami.</h1>
-        <iframe  data-aos="fade-left" data-aos-duration="1000" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960692!2d106.82496411396981!3d-6.175387062230964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1647588392077!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <h1 id="contact" class="brand-style contact-us-style" data-aos="fade-right">Temui Kami.</h1>
+      <iframe data-aos="fade-left" data-aos-duration="1000" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960692!2d106.82496411396981!3d-6.175387062230964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1647588392077!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </p>
-      
-     
+
+
 
       <h1 id="contact" class="brand-style contact-us-style" data-aos="fade-right" data-aos-duration="1000">Hubungi Kami.</h1>
       <form>
@@ -255,12 +230,10 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-      AOS.init();
+    AOS.init();
   </script>
 </body>
 

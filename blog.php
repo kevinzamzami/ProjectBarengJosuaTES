@@ -1,5 +1,6 @@
 <!-- Nama : Aysia Fatmi Yasmin -->
 <!-- NPM : 2010631250033 -->
+<?php session_start(); ?>
 
 <!doctype html>
 <html lang="en">
@@ -9,14 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Aysia Fatmi Yasmin">
     <link rel="icon" href="favicon/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a80ad92363.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&family=Ubuntu:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -43,15 +41,15 @@
             padding-right: 5%;
         }
 
-        .card{
+        .card {
             border-radius: 20px;
         }
-        
+
         .card-img {
             border-radius: 20px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
-            
+
         }
 
         .card-title {
@@ -71,15 +69,13 @@
             font-size: 0.8rem;
         }
 
-        .btn:hover{
+        .btn:hover {
             background-color: white;
         }
 
-        .card i{
-            color: #ff4c68!important;
+        .card i {
+            color: #ff4c68 !important;
         }
-        
-
     </style>
 </head>
 
@@ -88,27 +84,8 @@
         <div class="container-fluid">
 
             <!-- Nav Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark mb-5" data-aos="fade-down" data-aos-duration="1000">
-                <span class="navbar-brand brand-style">Happy Cat.</span>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <?php include 'navbar_depan.php' ?>
 
-                <!-- Navbar List & Item -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav navbar-style">
-                        <li class="nav-item nav-item-style"><a class="nav-link" href="index.html">Beranda</a></li>
-                        <li class="nav-item nav-item-style"><a class="nav-link" href="tentang.html">Tentang</a></li>
-                        <li class="nav-item nav-item-style"><a class="nav-link" href="index.html#contact">Kontak</a>
-                        </li>
-                        <li class="nav-item nav-item-style"><a class="nav-link" href="index.html#pricing">Produk</a>
-                        </li>
-                        <li class="nav-item nav-item-style"><a class="nav-link" href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-            </nav>
         </div>
     </section>
 
@@ -120,9 +97,7 @@
             <div class="row title-grid-style mt-4 blog-container-style">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog1.jpg"
-                            >
+                        <img class="card-img" src="images/blog1.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Care</button>
                         </div>
@@ -149,9 +124,7 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog2.jpg"
-                            >
+                        <img class="card-img" src="images/blog2.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Fakta</button>
                         </div>
@@ -177,9 +150,7 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog3.jpg"
-                            >
+                        <img class="card-img" src="images/blog3.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Care</button>
                         </div>
@@ -205,9 +176,7 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog4.jpg"
-                            >
+                        <img class="card-img" src="images/blog4.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Care</button>
                         </div>
@@ -233,9 +202,7 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog6.jpg"
-                            >
+                        <img class="card-img" src="images/blog6.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Care</button>
                         </div>
@@ -261,9 +228,7 @@
 
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card">
-                        <img class="card-img"
-                            src="images/blog5.jpg"
-                            >
+                        <img class="card-img" src="images/blog5.jpg">
                         <div>
                             <button class="btn btn-light btn-sm">Care</button>
                         </div>
@@ -305,9 +270,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
