@@ -2,7 +2,7 @@
 
 
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark mb-5" data-aos="fade-down" data-aos-duration="1000">
+<nav class="navbar navbar-expand-lg navbar-dark mb-5" data-aos="fade-down" data-aos-duration="1000" style="z-index: 999999;">
     <span class="navbar-brand brand-style">Happy Cat.</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
