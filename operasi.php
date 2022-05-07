@@ -47,7 +47,7 @@ if (isset($_POST['submit_pesanan'])) {
     $harga_1 = 0;
     $harga_2 = 500000;
     $harga_3 = 900000;
-
+    $username = $_SESSION['username'];
     $nama = $_SESSION['nama'];
     $durasi = $_POST['durasi'];
     $jenis = $_POST['jenis'];
@@ -60,7 +60,7 @@ if (isset($_POST['submit_pesanan'])) {
 
 
     if ($jenis == 1) {
-        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$nama' && `percobaan` = 1;");
+        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$username' && `percobaan` = 1;");
         if (mysqli_num_rows($cek) == 1) {
             $_SESSION['alert'] = "Paket ini hanya boleh dipesan 1 kali saja";
             header("location: pemesananlayanan.php?jenis=$jenis");
@@ -89,14 +89,14 @@ if (isset($_POST['submit_pesanan'])) {
                     $_SESSION['bulan'] = $durasi;
 
 
-                    $conn->query("UPDATE `user` SET `percobaan` = '1' WHERE `user`.`username` = '$nama';");
+                    $conn->query("UPDATE `user` SET `percobaan` = '1' WHERE `user`.`username` = '$_';");
 
                     header("location: pemesananlayanan.php?jenis=$jenis");
                 }
             }
         }
     } else if ($jenis == 2) {
-        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$nama' && `percobaan` = 123;");
+        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$username' && `percobaan` = 123;");
         if (mysqli_num_rows($cek) == 1) {
             $_SESSION['alert'] = "Paket ini hanya boleh dipesan 1 kali saja";
             header("location: pemesananlayanan.php?jenis=$jenis");
@@ -129,7 +129,7 @@ if (isset($_POST['submit_pesanan'])) {
             }
         }
     } else if ($jenis == 3) {
-        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$nama' && `percobaan` = 123;");
+        $cek = $conn->query("SELECT * FROM `user` WHERE `username` = '$username' && `percobaan` = 123;");
         if (mysqli_num_rows($cek) == 1) {
             $_SESSION['alert'] = "Paket ini hanya boleh dipesan 1 kali saja";
             header("location: pemesananlayanan.php?jenis=$jenis");
