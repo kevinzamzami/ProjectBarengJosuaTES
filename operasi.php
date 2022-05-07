@@ -75,7 +75,7 @@ if (isset($_POST['submit_pesanan'])) {
                     $date_jatuh = $date_jatuh->format('Y-m-d');
                     //echo $date_jatuh;
                     $harga_1 = $harga_1 * $durasi;
-                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`, `bulan`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_1, 'menunggu konfirmasi', $durasi);");
+                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_1, 'menunggu konfirmasi');");
                     $upload = 1;
                     echo "selesai";
                     $_SESSION['alert'] = "Paket telah berhasil didaftarkan. Silahkan menunggu konfirmasi";
@@ -111,7 +111,7 @@ if (isset($_POST['submit_pesanan'])) {
                     $date_jatuh = $date_jatuh->format('Y-m-d');
                     //echo $date_jatuh;
                     $harga_2 = $harga_2 * $durasi;
-                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`, `bulan`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_2, 'menunggu konfirmasi', $durasi);");
+                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_2, 'menunggu konfirmasi');");
                     $upload = 1;
                     echo "selesai";
                     $_SESSION['alert'] = "Paket telah berhasil didaftarkan. Silahkan melakukan pembayaran";
@@ -144,7 +144,7 @@ if (isset($_POST['submit_pesanan'])) {
                     $date_jatuh = $date_jatuh->format('Y-m-d');
                     //echo $date_jatuh;
                     $harga_3 = $harga_3 * $durasi;
-                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`, `bulan`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_3, 'menunggu konfirmasi', $durasi);");
+                    $conn->query("INSERT INTO `langganan` (`id`, `kode_pembayaran`, `atas_nama`, `layanan_perawatan`, `tanggal_pemesanan`, `tanggal_habis_tempo`, `total_pembayaran`, `status`) VALUES (NULL, '$random', '$nama', '$jenis', '$date_reference', '$date_jatuh', $harga_3, 'menunggu konfirmasi');");
                     $upload = 1;
                     echo "selesai";
                     $_SESSION['alert'] = "Paket telah berhasil didaftarkan. Silahkan melakukan pembayaran";
