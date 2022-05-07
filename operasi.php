@@ -89,7 +89,7 @@ if (isset($_POST['submit_pesanan'])) {
                     $_SESSION['bulan'] = $durasi;
 
 
-                    $conn->query("UPDATE `user` SET `percobaan` = '1' WHERE `user`.`username` = '$_';");
+                    $conn->query("UPDATE `user` SET `percobaan` = '1' WHERE `user`.`username` = '$username';");
 
                     header("location: pemesananlayanan.php?jenis=$jenis");
                 }
