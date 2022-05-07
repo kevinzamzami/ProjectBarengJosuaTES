@@ -133,7 +133,7 @@
               <p>1x Potong kuku</p>
               <p>1x Tes Virus</p>
               <?php if (isset($_SESSION["username"])) { ?>
-                <a href="pemesanantiket.php?jenis=1" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+                <a href="pemesananlayanan.php?jenis=1" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
               <?php } else { ?>
                 <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
               <?php } ?>
@@ -152,7 +152,7 @@
               <p>1x Cek Kesehatan/bulan</p>
               <p>1x Penyembuhan/tahun</p>
               <?php if (isset($_SESSION["username"])) { ?>
-                <a href="pemesanantiket.php?jenis=2" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+                <a href="pemesananlayanan.php?jenis=2" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
               <?php } else { ?>
                 <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
               <?php } ?>
@@ -171,7 +171,7 @@
               <p>2x Cek Kesehatan/bulan</p>
               <p>2x Penyembuhan/tahun</p>
               <?php if (isset($_SESSION["username"])) { ?>
-                <a href="pemesanantiket.php?jenis=3" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
+                <a href="pemesananlayanan.php?jenis=3" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Pesan Sekarang</a>
               <?php } else { ?>
                 <a href="register.php" class="btn btn-outline-dark btn-lg pricing-button-style" style="margin-top: 40px;" type="button">Sign Up</a>
               <?php } ?>

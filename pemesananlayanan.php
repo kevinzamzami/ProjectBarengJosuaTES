@@ -1,4 +1,23 @@
-<?php session_start(); ?>
+<?php
+$nomor = "";
+$tanggal = "";
+$nama = "";
+$layanan = "";
+$durasi = "";
+$total = "";
+
+
+session_start();
+if (isset($_SESSION['nomor'])) {
+  $nomor = $_SESSION['nomor'];
+  $tanggal = $_SESSION['tanggal'];
+  $nama = $_SESSION['nama'];
+  $layanan = $_SESSION['layanan'];
+  $durasi = $_SESSION['durasi'];
+  $total = $_SESSION['total'];
+}
+include 'login_check.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -120,41 +139,73 @@
 
   <div class="container mt-5 box white-colored">
     <h1 class="text-center mb-5 mt-3 white-colored">Pemesanan Layanan Perawatan Happy Cat</h1>
-    <div class="alert alert-success" role="alert">
-      Pemesanan Berhasil, lakukan Pembayaran sebelum 7 hari setelah pemesanan dilakukan
-    </div>
+
+    <?php if (isset($_SESSION['alert'])) { ?>
+      <div class="alert alert-success" role="alert">
+        <?php
+        echo $_SESSION['alert'];
+        unset($_SESSION['alert']);
+        ?>
+      </div>
+    <?php } ?>
+
     <div class="row">
       <div class="col-md-6 border-right-style ps-2 pe-4">
-        <form class="" action="" method="POST">
-          <input type="hidden" name="tanggalPemesanan" value="<?php echo date("d-m-Y"); ?>">
-
+        <form class="" action="operasi.php" method="POST">
+          <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("d-m-Y"); ?>">
+          <input type="hidden" name="jenis" value="<?php echo $_GET['jenis']; ?>">
           <div class="mb-3">
             <label><strong>Atas Nama</strong></label>
-            <input class="form-control" type="text" name="namaMaskapai" readonly required>
+            <input class="form-control" type="text" name="nama" value="<?php echo $_SESSION['nama'] ?>" readonly required>
           </div>
 
           <div class="mb-3">
             <label><strong>Layanan Perawatan</strong></label>
-            <select class="form-control" name="bandaraAsal">
-              <!-- Percobaan Pertama hanya muncul ketika user belum pernah menggunakan percobaan pertama -->
-              <option value="layanan1">Percobaan Pertama</option>
-              <option value="layanan2">Kucing Mewah</option>
-              <option value="layanan3">Kucing Sultan</option>
-            </select>
+            <input class="form-control" type="text" name="layanan" value="<?php
+                                                                          if ($_GET['jenis'] == 1) {
+                                                                            echo "Percobaan Pertama";
+                                                                          } else if ($_GET['jenis'] == 2) {
+                                                                            echo "Kucing Mewah";
+                                                                          } else {
+                                                                            echo "Kucing Sultan";
+                                                                          }
+                                                                          ?>
+                                                                          " readonly>
           </div>
 
           <div class="mb-3">
             <label><strong>Durasi Berlangganan</strong></label>
-            <select class="form-control" name="bandaraTujuan" id="">
-              <option value="1bln">1 Bulan</option>
-              <option value="3bln">3 Bulan</option>
-              <option value="6bln">6 Bulan</option>
-              <option value="12bln">12 Bulan</option>
+            <select class="form-control" name="durasi" id="">
+              <option value="1" <?php if (isset($_SESSION['bulan'])) {
+                                  if ($_SESSION['bulan'] == 1) {
+                                    echo "selected";
+                                  }
+                                } ?>>1 Bulan</option>
+
+
+              <?php if ($_GET['jenis'] != 1) { ?>
+                <option value="3" <?php if (isset($_SESSION['bulan'])) {
+                                    if ($_SESSION['bulan'] == 3) {
+                                      echo "selected";
+                                    }
+                                  } ?>>3 Bulan</option>
+                <option value="6" <?php if (isset($_SESSION['bulan'])) {
+                                    if ($_SESSION['bulan'] == 6) {
+                                      echo "selected";
+                                    }
+                                  } ?>>6 Bulan</option>
+                <option value="12" <?php if (isset($_SESSION['bulan'])) {
+                                      if ($_SESSION['bulan'] == 12) {
+                                        echo "selected";
+                                      }
+                                    } ?>>12 Bulan</option>
+
+              <?php } ?>
             </select>
           </div>
 
           <div class="mb-3">
-            <input class="btn btn-dark btn-lg button-download-style w-100" type="submit" value="Daftar" name="daftar">
+            <input class="btn btn-dark btn-lg button-download-style w-100" type="submit" value="Daftar" name="submit_pesanan">
           </div>
 
 
@@ -166,38 +217,38 @@
           <tr>
             <td><strong><?php echo "Nomor" ?></strong></td>
             <td>:</td>
-            <td><?php echo (rand(1000000, 9999999)); ?></td>
+            <td><?php echo $nomor ?></td>
           </tr>
 
 
           <tr>
             <td><strong><?php echo "Tanggal Pemesanan" ?></strong></td>
             <td>:</td>
-            <td></td>
+            <td><?php echo $tanggal ?></td>
           </tr>
 
           <tr>
             <td><strong><?php echo "Atas Nama" ?></strong></td>
             <td>:</td>
-            <td></td>
+            <td><?php echo $nama ?></td>
           </tr>
 
           <tr>
             <td><strong><?php echo "Layanan Perawatan" ?></strong></td>
             <td>:</td>
-            <td></td>
+            <td><?php echo $layanan ?></td>
           </tr>
 
           <tr>
             <td><strong><?php echo "Durasi Berlangganan" ?></strong></td>
             <td>:</td>
-            <td></td>
+            <td><?php echo $durasi ?></td>
           </tr>
 
           <tr>
             <td><strong><?php echo "Total Pembayaran" ?></strong></td>
             <td>:</td>
-            <td></td>
+            <td><?php echo $total ?></td>
           </tr>
 
 
@@ -212,43 +263,52 @@
 
   </div>
 
-  <div class="container mt-5 box">
-    <h1 class="text-center mb-5 mt-3 white-colored">Tata Cara Pembayaran</h1>
-    <div class="row mx-auto white-colored" style="width: 70%;">
-      <ul style="list-style-type:circle">
-        <li class="fs-6">Lakukan transfer ke DANA(+62 896-5436-2274) ATAU ShopeePay(+62 896-5436-2274) sesuai dengan jumlah yang harus dibayarkan.</li>
-        <li class="fs-6">Kirimkan Bukti Transfer ke Whatsapp(+62 896-5436-2274) dengan menuliskan Nomor Pemesanan.</li>
-        <li class="fs-6">Silahkan tunggu konfirmasi paling lambat 1x24 jam.</li>
-      </ul>
-      <p class="text-center">Nomor Pemesanan Anda : </p>
-      <h1 class="text-center">1234567</h1>
-
-    </div>
-
-
-
-
-
-  </div>
-
-  <footer id="footer2" style="text-align:center;">
-    <div class="container-fluid">
-      <div class="footer-icon">
-        <i class="fab fa-twitter footer-icon-style"></i>
-        <i class="fab fa-facebook-f footer-icon-style"></i>
-        <i class="fab fa-instagram footer-icon-style"></i>
-        <i class="fas fa-envelope footer-icon-style"></i>
-
+  <?php if (isset($_SESSION['nomor'])) { ?>
+    <div class="container mt-5 box">
+      <h1 class="text-center mb-5 mt-3 white-colored">Tata Cara Pembayaran</h1>
+      <div class="row mx-auto white-colored" style="width: 70%;">
+        <ul style="list-style-type:circle">
+          <li class="fs-6">Lakukan transfer ke DANA(+62 896-5436-2274) ATAU ShopeePay(+62 896-5436-2274) sesuai dengan jumlah yang harus dibayarkan.</li>
+          <li class="fs-6">Kirimkan Bukti Transfer ke Whatsapp(+62 896-5436-2274) dengan menuliskan Nomor Pemesanan.</li>
+          <li class="fs-6">Silahkan tunggu konfirmasi paling lambat 1x24 jam.</li>
+        </ul>
+        <p class="text-center">Nomor Pemesanan Anda : </p>
+        <h1 class="text-center"><?php echo $nomor ?></h1>
+      <?php
+      unset($_SESSION['nomor']);
+      unset($_SESSION['tanggal']);
+      unset($_SESSION['layanan']);
+      unset($_SESSION['durasi']);
+      unset($_SESSION['total']);
+      unset($_SESSION['bulan']);
+    }
+      ?>
       </div>
-      <p class="copyright-style">© Copyright 2022 Aysia Fatmi Yasmin</p>
-    </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+
+
+
+
+    </div>
+
+    <footer id="footer2" style="text-align:center;">
+      <div class="container-fluid">
+        <div class="footer-icon">
+          <i class="fab fa-twitter footer-icon-style"></i>
+          <i class="fab fa-facebook-f footer-icon-style"></i>
+          <i class="fab fa-instagram footer-icon-style"></i>
+          <i class="fas fa-envelope footer-icon-style"></i>
+
+        </div>
+        <p class="copyright-style">© Copyright 2022 Aysia Fatmi Yasmin</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 
 </html>
