@@ -9,7 +9,10 @@ $total = "";
 
 session_start();
 
-include 'login_check.php';
+if (isset($_SESSION['admin'])) {
+} else {
+  header("location: index.php");
+}
 include 'konfigurasi.php';
 
 $nama = $_SESSION['nama'];
