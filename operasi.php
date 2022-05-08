@@ -176,3 +176,19 @@ if (isset($_POST['submit_ganti'])) {
         echo "beda";
     }
 }
+
+if (isset($_POST['submit_admin'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $cek_login = $conn->query("SELECT * FROM `admin` WHERE `username` = '$username' && `password` = '$password';");
+    if (mysqli_num_rows($cek_login) == 1) {
+        foreach ($cek_login as $data) {
+            $_SESSION['nama'] = $data['name'];
+        }
+        $_SESSION['admin'] = $username;
+        header("location: admindatalangganan.php");
+    } else {
+        $_SESSION['alert'] = "Username atau password salah";
+        header("location: adminlogin.php");
+    }
+}

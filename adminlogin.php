@@ -60,9 +60,9 @@
         <input type="password" placeholder="Password" name="password" value="" required>
       </div>
       <div class="input-group">
-        <button name="submit_login" class="btn">Login</button>
+        <button name="submit_admin" class="btn">Login</button>
       </div>
-      </form>
+    </form>
   </div>
 
 

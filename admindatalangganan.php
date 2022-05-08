@@ -1,6 +1,9 @@
 <?php
 session_start();
-// include 'login_check.php';
+if (isset($_SESSION['admin'])) {
+} else {
+    header("location: adminlogin.php");
+}
 ?>
 
 
@@ -313,7 +316,7 @@ session_start();
                     <td class="tg-xwd1"><span class="red-box">Non Aktif</span></td>
                     <td class="tg-xwd1">Sekian sekian</td>
                     <td class="tg-xwd1">
-    
+
                         <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
                     </td>
                 </tr>

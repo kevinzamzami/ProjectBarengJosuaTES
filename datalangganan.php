@@ -308,6 +308,19 @@ $hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama'");
             <tbody>
                 <!-- Clickable row adalah anchor buatan agar row bisa seperti anchor -->
                 <?php foreach ($hasil as $data) {
+                    $status = $data['status'];
+
+                    $date_reference1 = $data['tanggal_habis_tempo'];
+                    $date1 = date_create($date_reference1);
+                    $date_reference2 = date("Y-m-d");
+                    $date2 = date_create($date_reference2);
+
+                    if ($date2 < $date1) {
+                    } else if ($date2 > $date1) {
+                        $status = "Non Aktif";
+                    }
+
+
                     $nomor = $data['kode_pembayaran'] ?>
                     <tr class="clickable-row" data-href='detailpemesanan.php?nomor=<?php echo $nomor ?>'>
                         <td class="tg-u3ui"><?php echo $data['kode_pembayaran'] ?></td>
@@ -321,13 +334,13 @@ $hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama'");
                                             } ?></td>
                         <td class="tg-xwd1"><?php echo $data['tanggal_pemesanan'] ?></td>
                         <td class="tg-xwd1"><?php echo $data['tanggal_habis_tempo'] ?></td>
-                        <td class="tg-xwd1"><span class="<?php if ($data['status'] == "Belum Bayar") {
+                        <td class="tg-xwd1"><span class="<?php if ($status == "Belum Bayar") {
                                                                 echo "yellow-box";
-                                                            } else if ($data['status'] == "Aktif") {
+                                                            } else if ($status == "Aktif") {
                                                                 echo "green-box";
                                                             } else {
                                                                 echo "red-box";
-                                                            } ?>"><?php echo $data['status'] ?></span></td>
+                                                            } ?>"><?php echo $status ?></span></td>
                         <td class="tg-xwd1"><?php echo $data['total_pembayaran'] ?></td>
                     </tr>
                 <?php } ?>
