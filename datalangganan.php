@@ -1,6 +1,11 @@
 <?php
 session_start();
 include 'login_check.php';
+include 'konfigurasi.php';
+
+$nama = $_SESSION['nama'];
+$hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama'");
+
 ?>
 
 
@@ -284,7 +289,7 @@ include 'login_check.php';
 
     </section>
     <div class="tg-wrap">
-        <h1 class="text-center mb-3 mt-3" style="color: #ff4c68;">Data Langganan nama_user</h1>
+        <h1 class="text-center mb-3 mt-3" style="color: #ff4c68;">Data Langganan <?php echo $nama ?></h1>
 
         <table id="tg-rCzxG" class="tg">
             <!-- HEADER  -->
@@ -302,34 +307,30 @@ include 'login_check.php';
 
             <tbody>
                 <!-- Clickable row adalah anchor buatan agar row bisa seperti anchor -->
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=1'>
-                    <td class="tg-u3ui">1230989</td>
-                    <!-- <td class="tg-xwd1">Kevin Zamzami</td> -->
-                    <td class="tg-xwd1">Kucing Mewah</td>
-                    <td class="tg-xwd1">2022-05-07</td>
-                    <td class="tg-xwd1">2022-06-08</td>
-                    <td class="tg-xwd1"><span class="red-box">Non Aktif</span></td>
-                    <td class="tg-xwd1">Sekian sekian</td>
-                </tr>
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=2'>
-                    <td class="tg-u3ui">12344533</td>
-                    <!-- <td class="tg-xwd1">Kevin Zamzami</td> -->
-                    <td class="tg-xwd1">Kucing Sultan</td>
-                    <td class="tg-xwd1">2022-05-08</td>
-                    <td class="tg-xwd1">2022-06-09</td>
-                    <td class="tg-xwd1"><span class="yellow-box">Perlu Bayar</span></td>
-                    <td class="tg-xwd1">Sekian Sekian</td>
-                </tr>
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=3'>
-                    <td class="tg-u3ui">9999999</td>
-                    <!-- <td class="tg-xwd1">Kevin Zamzami</td> -->
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1"><span class="green-box">Aktif</span></td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                </tr>
-
+                <?php foreach ($hasil as $data) {
+                    $nomor = $data['kode_pembayaran'] ?>
+                    <tr class="clickable-row" data-href='detailpemesanan.php?nomor=<?php echo $nomor ?>'>
+                        <td class="tg-u3ui"><?php echo $data['kode_pembayaran'] ?></td>
+                        <!-- <td class="tg-xwd1">Kevin Zamzami</td> -->
+                        <td class="tg-xwd1"><?php if ($data['layanan_perawatan'] == 1) {
+                                                echo "Percobaan Pertama";
+                                            } else if ($data['layanan_perawatan'] == 2) {
+                                                echo "Kucing Mewah";
+                                            } else {
+                                                echo "Kucing Sultan";
+                                            } ?></td>
+                        <td class="tg-xwd1"><?php echo $data['tanggal_pemesanan'] ?></td>
+                        <td class="tg-xwd1"><?php echo $data['tanggal_habis_tempo'] ?></td>
+                        <td class="tg-xwd1"><span class="<?php if ($data['status'] == "Belum Bayar") {
+                                                                echo "yellow-box";
+                                                            } else if ($data['status'] == "Aktif") {
+                                                                echo "green-box";
+                                                            } else {
+                                                                echo "red-box";
+                                                            } ?>"><?php echo $data['status'] ?></span></td>
+                        <td class="tg-xwd1"><?php echo $data['total_pembayaran'] ?></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
         <p class="text-center">Pilih baris pesanan untuk melihat rincian pesanan</p>

@@ -135,25 +135,25 @@ include 'login_check.php';
         </div>
 
     </section>
-    <section id="cta" > 
+    <section id="cta">
         <div class="container-fluid">
             <h1 id="contact" class="brand-style contact-us-style" data-aos="fade-right" data-aos-duration="1000">Ganti Password</h1>
-            <form>
+            <form action="operasi.php" method="POST">
                 <div class="mb-3" data-aos="fade-left" data-aos-duration="1000">
                     <label class="label-text-style" name="passwordlama" for="passwordlama_id" class="form-label">Password Lama</label>
-                    <input name="passwordlama" type="password" class="form-control" id="passwordlama_id" autocomplete="off">
+                    <input name="password_lama" type="password" class="form-control" id="passwordlama_id" autocomplete="off">
                 </div>
                 <br>
                 <div class="mb-3" data-aos="fade-left" data-aos-duration="1000">
                     <label class="label-text-style" name="passwordlama" for="passwordlama_id" class="form-label">Password Baru</label>
-                    <input name="passwordbaru" type="password" class="form-control" id="passwordlama_id" autocomplete="off">
+                    <input name="password_baru" type="password" class="form-control" id="passwordlama_id" autocomplete="off">
                 </div>
                 <div class="mb-3" data-aos="fade-left" data-aos-duration="1000">
                     <label class="label-text-style" name="passwordlama" for="passwordlama_id" class="form-label">Konfirmasi Password Baru</label>
                     <input name="konfirmasi" type="password" class="form-control" id="passwordlama_id" autocomplete="off">
                 </div>
-                
-                <button data-aos="fade-up" data-aos-duration="1000" type="submit" class="btn btn-dark btn-lg button-download-style cta-button-style">Confirm</button>
+
+                <button data-aos="fade-up" data-aos-duration="1000" type="submit" name="submit_ganti" class="btn btn-dark btn-lg button-download-style cta-button-style">Confirm</button>
             </form>
         </div>
 

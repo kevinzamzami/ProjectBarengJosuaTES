@@ -10,6 +10,24 @@ $total = "";
 session_start();
 
 include 'login_check.php';
+include 'konfigurasi.php';
+
+$nama = $_SESSION['nama'];
+$nomor = $_GET['nomor'];
+$hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama' && `kode_pembayaran` = $nomor");
+foreach ($hasil as $data) {
+  $tanggal_pemesanan = $data['tanggal_pemesanan'];
+  if ($data['layanan_perawatan'] == 1) {
+    $layanan = "Percobaan Pertama";
+  } else if ($data['layanan_perawatan'] == 2) {
+    $layanan = "Kucing Mewah";
+  } else {
+    $layanan = "Kucing Sultan";
+  }
+  $durasi = $data['tanggal_pemesanan'] . " Hingga " . $data['tanggal_habis_tempo'];
+  $total = $data['total_pembayaran'];
+  $status = $data['status'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -156,7 +174,7 @@ include 'login_check.php';
           <tr>
             <td><strong><?php echo "Tanggal Pemesanan" ?></strong></td>
             <td>:</td>
-            <td><?php echo $tanggal ?></td>
+            <td><?php echo $tanggal_pemesanan ?></td>
           </tr>
 
           <tr>
@@ -186,7 +204,7 @@ include 'login_check.php';
           <tr>
             <td><strong><?php echo "Status" ?></strong></td>
             <td>:</td>
-            <td><?php echo "STATUS PEMBAAYARAN DISINI" ?></td>
+            <td><?php echo $status ?></td>
           </tr>
 
 
@@ -201,7 +219,7 @@ include 'login_check.php';
 
   </div>
 
-  <?php if (isset($_SESSION['nomor'])) { ?>
+  <?php if (isset($_GET['nomor'])) { ?>
     <div class="container mt-5 box">
       <h1 class="text-center mb-5 mt-3 white-colored">Tata Cara Pembayaran</h1>
       <div class="row mx-auto white-colored" style="width: 70%;">
