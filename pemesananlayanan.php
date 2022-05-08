@@ -5,6 +5,7 @@ $nama = "";
 $layanan = "";
 $durasi = "";
 $total = "";
+$status = "";
 
 
 session_start();
@@ -15,6 +16,7 @@ if (isset($_SESSION['nomor'])) {
   $layanan = $_SESSION['layanan'];
   $durasi = $_SESSION['durasi'];
   $total = $_SESSION['total'];
+  $status = $_SESSION['status'];
 }
 include 'login_check.php';
 ?>
@@ -151,7 +153,7 @@ include 'login_check.php';
 
     <div class="row">
       <div class="col-md-6 border-right-style ps-2 pe-4">
-      <h3 class=" mt-3 white-colored">Formulir Pemesanan</h3>
+        <h3 class=" mt-3 white-colored">Formulir Pemesanan</h3>
         <form class="" action="operasi.php" method="POST">
           <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("d-m-Y"); ?>">
           <input type="hidden" name="jenis" value="<?php echo $_GET['jenis']; ?>">
@@ -213,7 +215,7 @@ include 'login_check.php';
         </form>
       </div>
       <div class="col-md-6">
-      <h3 class=" mt-3 white-colored">Detail Pemesanan</h3>
+        <h3 class=" mt-3 white-colored">Detail Pemesanan</h3>
         <!-- Kotak Disebelahnya  -->
         <table class="mt-3" cellpadding="10">
           <tr>
@@ -256,7 +258,7 @@ include 'login_check.php';
           <tr>
             <td><strong><?php echo "Status" ?></strong></td>
             <td>:</td>
-            <td><?php echo "STATUS PEMBAAYARAN DISINI" ?></td>
+            <td><?php echo "$status" ?></td>
           </tr>
 
 
