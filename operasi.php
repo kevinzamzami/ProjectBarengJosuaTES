@@ -168,12 +168,23 @@ if (isset($_POST['submit_ganti'])) {
     $username = $_SESSION['username'];
     $password_lama = $_POST['password_lama'];
     $password_baru = $_POST['password_baru'];
-    $konfirmasi = $_POST['password_lama'];
-
-    if ($password_baru == $konfirmasi) {
-        echo "sama";
+    $konfirmasi = $_POST['konfirmasi'];
+    $hasil_password = $conn->query("SELECT * FROM `user` WHERE `username` = 'test';");
+    foreach ($hasil_password as $data) {
+        $password_benar = $data['password'];
+    }
+    if ($password_lama == $password_benar) {
+        if ($password_baru == $konfirmasi) {
+            $conn->query("UPDATE `user` SET `password` = '$password_baru' WHERE `user`.`username` = '$username';");
+            $_SESSION['alert'] = "Ganti password telah berhasil";
+            header("location: gantipassword.php");
+        } else {
+            $_SESSION['alert'] = "Konfirmasi password tidak sesuai";
+            header("location: gantipassword.php");
+        }
     } else {
-        echo "beda";
+        $_SESSION['alert'] = "Password lama anda salah";
+        header("location: gantipassword.php");
     }
 }
 
@@ -191,4 +202,16 @@ if (isset($_POST['submit_admin'])) {
         $_SESSION['alert'] = "Username atau password salah";
         header("location: adminlogin.php");
     }
+}
+
+if (isset($_GET['bayar'])) {
+    $id = $_GET['bayar'];
+    $conn->query("UPDATE `langganan` SET `status` = 'Aktif' WHERE `langganan`.`kode_pembayaran` = $id;");
+    header("location: admindatalangganan.php");
+}
+
+if (isset($_GET['hapus'])) {
+    $id = $_GET['hapus'];
+    $conn->query("DELETE FROM `langganan` WHERE `langganan`.`kode_pembayaran` = $id;");
+    header("location: admindatalangganan.php");
 }

@@ -136,12 +136,22 @@ include 'login_check.php';
 
     </section>
     <section id="cta">
-        
+
         <div class="container-fluid">
             <h1 id="contact" class="brand-style contact-us-style" data-aos="fade-right" data-aos-duration="1000">Ganti Password</h1>
-            <div class="alert alert-danger" role="alert">
-                Terjadi kesalahan, mohon cek password lama dan konfirmasi password baru
-            </div>
+
+
+
+            <?php if (isset($_SESSION['alert'])) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo $_SESSION['alert'];
+                    unset($_SESSION['alert']);
+                    ?>
+                </div>
+            <?php } ?>
+
+
             <form action="operasi.php" method="POST">
                 <div class="mb-3" data-aos="fade-left" data-aos-duration="1000">
                     <label class="label-text-style" name="passwordlama" for="passwordlama_id" class="form-label">Password Lama</label>

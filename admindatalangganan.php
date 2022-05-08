@@ -4,6 +4,10 @@ if (isset($_SESSION['admin'])) {
 } else {
     header("location: adminlogin.php");
 }
+include 'konfigurasi.php';
+
+$hasil = $conn->query("SELECT * FROM `langganan`;");
+
 ?>
 
 
@@ -307,45 +311,45 @@ if (isset($_SESSION['admin'])) {
 
             <tbody>
                 <!-- Clickable row adalah anchor buatan agar row bisa seperti anchor -->
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=1'>
-                    <td class="tg-u3ui">1230989</td>
-                    <td class="tg-xwd1">Kevin Zamzami</td>
-                    <td class="tg-xwd1">Kucing Mewah</td>
-                    <td class="tg-xwd1">2022-05-07</td>
-                    <td class="tg-xwd1">2022-06-08</td>
-                    <td class="tg-xwd1"><span class="red-box">Non Aktif</span></td>
-                    <td class="tg-xwd1">Sekian sekian</td>
-                    <td class="tg-xwd1">
+                <?php foreach ($hasil as $data) {
+                    $status = $data['status'];
 
-                        <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
-                    </td>
-                </tr>
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=2'>
-                    <td class="tg-u3ui">12344533</td>
-                    <td class="tg-xwd1">Kevin Zamzami</td>
-                    <td class="tg-xwd1">Kucing Sultan</td>
-                    <td class="tg-xwd1">2022-05-08</td>
-                    <td class="tg-xwd1">2022-06-09</td>
-                    <td class="tg-xwd1"><span class="yellow-box">Perlu Bayar</span></td>
-                    <td class="tg-xwd1">Sekian Sekian</td>
-                    <td class="tg-xwd1">
-                        <button type="button" class="btn btn-success btn-sm">Sudah Bayar</button>
-                        <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
-                    </td>
-                </tr>
-                <tr class="clickable-row" data-href='detailpemesanan.php?jenis=3'>
-                    <td class="tg-u3ui">9999999</td>
-                    <td class="tg-xwd1">Kevin Zamzami</td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1"><span class="green-box">Aktif</span></td>
-                    <td class="tg-xwd1">Dummy Data</td>
-                    <td class="tg-xwd1">
-                        <button type="button" class="btn btn-success btn-sm">Sudah Bayar</button>
-                        <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
-                    </td>
-                </tr>
+                    $date_reference1 = $data['tanggal_habis_tempo'];
+                    $date1 = date_create($date_reference1);
+                    $date_reference2 = date("Y-m-d");
+                    $date2 = date_create($date_reference2);
+
+                    if ($date2 < $date1) {
+                    } else if ($date2 > $date1) {
+                        $status = "Non Aktif";
+                    }
+                    $nomor = $data['kode_pembayaran'] ?>
+                    <tr class="clickable-row" data-href='detailpemesanan.php?nomor=<?php echo $nomor ?>'>
+                        <td class="tg-u3ui"><?php echo $data['kode_pembayaran'] ?></td>
+                        <td class="tg-xwd1"><?php echo $data['atas_nama'] ?></td>
+                        <td class="tg-xwd1"><?php if ($data['layanan_perawatan'] == 1) {
+                                                echo "Percobaan Pertama";
+                                            } else if ($data['layanan_perawatan'] == 2) {
+                                                echo "Kucing Mewah";
+                                            } else {
+                                                echo "Kucing Sultan";
+                                            } ?></td>
+                        <td class="tg-xwd1"><?php echo $data['tanggal_pemesanan'] ?></td>
+                        <td class="tg-xwd1"><?php echo $data['tanggal_habis_tempo'] ?></td>
+                        <td class="tg-xwd1"><span class="<?php if ($status == "Belum Bayar") {
+                                                                echo "yellow-box";
+                                                            } else if ($status == "Aktif") {
+                                                                echo "green-box";
+                                                            } else {
+                                                                echo "red-box";
+                                                            } ?>"><?php echo $status ?></span></td>
+                        <td class="tg-xwd1"><?php echo $data['total_pembayaran'] ?></td>
+                        <td class="tg-xwd1">
+                            <a href="operasi.php?bayar=<?php echo $data['kode_pembayaran'] ?>"><button type="button" class="btn btn-success btn-sm">Sudah Bayar</button></a>
+                            <a href="operasi.php?hapus=<?php echo $data['kode_pembayaran'] ?>"><button type="button" class="btn btn-danger btn-sm">Hapus Data</button></a>
+                        </td>
+                    </tr>
+                <?php } ?>
 
             </tbody>
         </table>

@@ -14,7 +14,7 @@ include 'konfigurasi.php';
 
 $nama = $_SESSION['nama'];
 $nomor = $_GET['nomor'];
-$hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama' && `kode_pembayaran` = $nomor");
+$hasil = $conn->query("SELECT * FROM `langganan` WHERE `kode_pembayaran` = $nomor");
 foreach ($hasil as $data) {
   $tanggal_pemesanan = $data['tanggal_pemesanan'];
   if ($data['layanan_perawatan'] == 1) {
@@ -27,6 +27,7 @@ foreach ($hasil as $data) {
   $durasi = $data['tanggal_pemesanan'] . " Hingga " . $data['tanggal_habis_tempo'];
   $total = $data['total_pembayaran'];
   $status = $data['status'];
+  $atas_nama = $data['atas_nama'];
 }
 ?>
 <!doctype html>
@@ -180,7 +181,7 @@ foreach ($hasil as $data) {
           <tr>
             <td><strong><?php echo "Atas Nama" ?></strong></td>
             <td>:</td>
-            <td><?php echo $nama ?></td>
+            <td><?php echo $atas_nama ?></td>
           </tr>
 
           <tr>
