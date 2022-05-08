@@ -27,8 +27,8 @@
                             <p class="fw-bold ps-2 mb-0"> Halo, <?php echo $_SESSION['nama']; ?></p>
                             <p class="fs-6 ps-2 mb-2"> <?php echo $_SESSION['username']; ?> </p>
                         </li>
-                        <li><a class="dropdown-item" href="#">Pesanan Saya</a></li>
-                        <li><a class="dropdown-item" href="#">Ganti Password</a></li>
+                        <li><a class="dropdown-item" href="datalangganan.php">Langganan Saya</a></li>
+                        <li><a class="dropdown-item" href="gantipassword.php">Ganti Password</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

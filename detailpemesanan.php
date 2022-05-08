@@ -8,14 +8,7 @@ $total = "";
 
 
 session_start();
-if (isset($_SESSION['nomor'])) {
-  $nomor = $_SESSION['nomor'];
-  $tanggal = $_SESSION['tanggal'];
-  $nama = $_SESSION['nama'];
-  $layanan = $_SESSION['layanan'];
-  $durasi = $_SESSION['durasi'];
-  $total = $_SESSION['total'];
-}
+
 include 'login_check.php';
 ?>
 <!doctype html>
@@ -138,7 +131,7 @@ include 'login_check.php';
   </section>
 
   <div class="container mt-5 box white-colored">
-    <h1 class="text-center mb-5 mt-3 white-colored">Pemesanan Layanan Perawatan Happy Cat</h1>
+    <h1 class="text-center mb-3 mt-3 white-colored">Detail Pemesanan Layanan Perawatan Happy Cat</h1>
 
     <?php if (isset($_SESSION['alert'])) { ?>
       <div class="alert alert-success" role="alert">
@@ -150,70 +143,7 @@ include 'login_check.php';
     <?php } ?>
 
     <div class="row">
-      <div class="col-md-6 border-right-style ps-2 pe-4">
-      <h3 class=" mt-3 white-colored">Formulir Pemesanan</h3>
-        <form class="" action="operasi.php" method="POST">
-          <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("d-m-Y"); ?>">
-          <input type="hidden" name="jenis" value="<?php echo $_GET['jenis']; ?>">
-          <div class="mb-3">
-            <label><strong>Atas Nama</strong></label>
-            <input class="form-control" type="text" name="nama" value="<?php echo $_SESSION['nama'] ?>" readonly required>
-          </div>
-
-          <div class="mb-3">
-            <label><strong>Layanan Perawatan</strong></label>
-            <input class="form-control" type="text" name="layanan" value="<?php
-                                                                          if ($_GET['jenis'] == 1) {
-                                                                            echo "Percobaan Pertama";
-                                                                          } else if ($_GET['jenis'] == 2) {
-                                                                            echo "Kucing Mewah";
-                                                                          } else {
-                                                                            echo "Kucing Sultan";
-                                                                          }
-                                                                          ?>
-                                                                          " readonly>
-          </div>
-
-          <div class="mb-3">
-            <label><strong>Durasi Berlangganan</strong></label>
-            <select class="form-control" name="durasi" id="">
-              <option value="1" <?php if (isset($_SESSION['bulan'])) {
-                                  if ($_SESSION['bulan'] == 1) {
-                                    echo "selected";
-                                  }
-                                } ?>>1 Bulan</option>
-
-
-              <?php if ($_GET['jenis'] != 1) { ?>
-                <option value="3" <?php if (isset($_SESSION['bulan'])) {
-                                    if ($_SESSION['bulan'] == 3) {
-                                      echo "selected";
-                                    }
-                                  } ?>>3 Bulan</option>
-                <option value="6" <?php if (isset($_SESSION['bulan'])) {
-                                    if ($_SESSION['bulan'] == 6) {
-                                      echo "selected";
-                                    }
-                                  } ?>>6 Bulan</option>
-                <option value="12" <?php if (isset($_SESSION['bulan'])) {
-                                      if ($_SESSION['bulan'] == 12) {
-                                        echo "selected";
-                                      }
-                                    } ?>>12 Bulan</option>
-
-              <?php } ?>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <input class="btn btn-dark btn-lg button-download-style w-100" type="submit" value="Daftar" name="submit_pesanan">
-          </div>
-
-
-        </form>
-      </div>
-      <div class="col-md-6">
-      <h3 class=" mt-3 white-colored">Detail Pemesanan</h3>
+      <div class="col-md-6 mx-auto" style="width: 50%;">
         <!-- Kotak Disebelahnya  -->
         <table class="mt-3" cellpadding="10">
           <tr>

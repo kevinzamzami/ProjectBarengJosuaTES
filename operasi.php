@@ -3,7 +3,7 @@ include 'konfigurasi.php';
 session_start();
 if (isset($_POST['submit_register'])) {
     $username = $_POST['username'];
-    $nama = $_POST['nama'];
+    $nama = ucwords(strtolower($_POST['nama']));
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
     if ($password != $cpassword) {
