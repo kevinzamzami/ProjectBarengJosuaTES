@@ -87,7 +87,7 @@ if (isset($_POST['submit_pesanan'])) {
                     $_SESSION['durasi'] = $date_reference . " hingga " . $date_jatuh;
                     $_SESSION['total'] = $harga_1;
                     $_SESSION['bulan'] = $durasi;
-                    $_SESSION['status'] = "Menunggu Konfirmasi";
+                    $_SESSION['status'] = "Belum Bayar";
 
 
                     $conn->query("UPDATE `user` SET `percobaan` = '1' WHERE `user`.`username` = '$username';");
