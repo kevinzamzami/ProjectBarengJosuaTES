@@ -8,8 +8,8 @@ $total = "";
 
 
 session_start();
-
-if (isset($_SESSION['admin'])) {
+if (isset($_SESSION['username'])) {
+} else if (isset($_SESSION['admin'])) {
 } else {
   header("location: index.php");
 }
