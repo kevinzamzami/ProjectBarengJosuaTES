@@ -6,6 +6,9 @@ include 'konfigurasi.php';
 $nama = $_SESSION['nama'];
 $hasil = $conn->query("SELECT * FROM `langganan` WHERE `atas_nama` = '$nama'");
 
+
+
+
 ?>
 
 

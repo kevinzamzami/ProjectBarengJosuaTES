@@ -199,7 +199,7 @@ if (isset($_POST['submit_admin'])) {
     $cek_login = $conn->query("SELECT * FROM `admin` WHERE `username` = '$username' && `password` = '$password';");
     if (mysqli_num_rows($cek_login) == 1) {
         foreach ($cek_login as $data) {
-            $_SESSION['nama'] = $data['name'];
+            $_SESSION['nama_admin'] = $data['username'];
         }
         $_SESSION['admin'] = $username;
         header("location: admindatalangganan.php");

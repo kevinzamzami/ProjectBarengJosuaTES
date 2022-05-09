@@ -345,7 +345,9 @@ $hasil = $conn->query("SELECT * FROM `langganan`;");
                                                             } ?>"><?php echo $status ?></span></td>
                         <td class="tg-xwd1"><?php echo $data['total_pembayaran'] ?></td>
                         <td class="tg-xwd1">
-                            <a href="operasi.php?bayar=<?php echo $data['kode_pembayaran'] ?>"><button type="button" class="btn btn-success btn-sm">Sudah Bayar</button></a>
+                            <?php if ($status == "Belum Bayar") { ?>
+                                <a href="operasi.php?bayar=<?php echo $data['kode_pembayaran'] ?>"><button type="button" class="btn btn-success btn-sm">Sudah Bayar</button></a>
+                            <?php } ?>
                             <a href="operasi.php?hapus=<?php echo $data['kode_pembayaran'] ?>"><button type="button" class="btn btn-danger btn-sm">Hapus Data</button></a>
                         </td>
                     </tr>
