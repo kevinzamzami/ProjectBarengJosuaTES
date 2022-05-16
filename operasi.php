@@ -174,7 +174,7 @@ if (isset($_POST['submit_ganti'])) {
     $password_lama = $_POST['password_lama'];
     $password_baru = $_POST['password_baru'];
     $konfirmasi = $_POST['konfirmasi'];
-    $hasil_password = $conn->query("SELECT * FROM `user` WHERE `username` = 'test';");
+    $hasil_password = $conn->query("SELECT * FROM `user` WHERE `username` = '$username';");
     foreach ($hasil_password as $data) {
         $password_benar = $data['password'];
     }
